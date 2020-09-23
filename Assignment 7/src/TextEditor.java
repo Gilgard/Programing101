@@ -42,5 +42,16 @@ public class TextEditor {
         //      finaly make the array into a string and replace txt with the new (and improved string)
     }
 
+    //Testklient
+    public static void main(String[] args) {
+        TextEditor textEditor = new TextEditor("The whiskey stink of rot has settled in the garden, and a burst of fruit flies rises when I touch the dying tomato plants. Still, the claws of tiny yellow blossoms flail in the air as I pull...");
+        System.out.println(textEditor.totalNumberOfWords());
+        System.out.println(textEditor.averageWordLength());
+        System.out.println(textEditor.averageWordPerSentence());
+        textEditor.searchAndReplace("whiskey", "nasty");
+        System.out.println(textEditor.getTxt());
+        System.out.println(textEditor.getUpper());
+
+    }
     
 }
