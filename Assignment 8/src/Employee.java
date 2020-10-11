@@ -8,7 +8,7 @@ public class Employee {
     private double taxLevel;
 
     //constructor:
-    public Employee(String firstName, String lastName, int birthYear, String employeeID, int employmentYear, double monthlySalary, double taxLevel){
+    public Employee(String firstName, String lastName, int birthYear, String employeeID, int employmentYear, double monthlySalary, double taxLevel) {
         this.personalia = new Person(firstName, lastName, birthYear);
         this.employeeID = employeeID;
         this.employmentYear = employmentYear;
@@ -34,7 +34,7 @@ public class Employee {
     }
 
     public double getTaxLevel() {
-        return taxLevel;
+        return taxLevel * 100;
     }
 
     //Setters:
@@ -43,7 +43,7 @@ public class Employee {
     }
 
     public void setTaxLevel(double taxLevel) {
-        this.taxLevel = taxLevel;
+        this.taxLevel = taxLevel * 0.01;
     }
 
     public void setName(String firstName, String lastName) {
@@ -51,44 +51,44 @@ public class Employee {
     }
 
     //methods:
-    public double monthlyTaxPayment(){
+    public double monthlyTaxPayment() {
         return monthlySalary * taxLevel;
     }
 
-    public double yearlyPayBeforeTaxes(){
+    public double yearlyPayBeforeTaxes() {
         return monthlySalary * 12;
     }
 
-    public double yearlyTaxes(){
-        return monthlyTaxPayment() * 11.5;
+    public double yearlyTaxes() {
+        return monthlyTaxPayment() * 10.5;
     }
 
-    public String name(){
+    public String name() {
         return personalia.getLastName() + ", " + personalia.getFirstName();
     }
 
-    public int age(){
+    public int age() {
         int currentYear = Calendar.getInstance().get(Calendar.YEAR);
         return currentYear - personalia.getBirthYear();
     }
 
-    public int employmentTime(){
+    public int employmentTime() {
         int currentYear = Calendar.getInstance().get(Calendar.YEAR);
         return currentYear - employmentYear;
     }
 
-    public boolean employedLongerThan(int years){
+    public boolean employedLongerThan(int years) {
         return employmentTime() >= years;
     }
 
-    public void print(){
+    public void print() {
         String yesNo = "No";
         if(employedLongerThan(3)) yesNo = "yes";
         String s = String.format("%s \nAge: %d \nID: %s \nYears employed: %d \nYearly pay before taxes: %.2f kr \nYearly taxes: %.2f kr \nYearly pay after taxes: %.2f kr \nHas been employed for longer than 3 years: %s", name(), age(), employeeID, employmentTime(), yearlyPayBeforeTaxes(), yearlyTaxes(), (yearlyPayBeforeTaxes() - yearlyTaxes()), yesNo);
         System.out.println(s);
     }
 
-    public String toString(){
+    public String toString() {
         String s = "Personalia: \n" + personalia.toString() + "\nEmployee ID: " + employeeID + "\nYear of employment: " + employmentYear + "\nMonthly salary: " + monthlySalary + " kr \nTaxation level: " + (taxLevel * 100) + " %";
         return s;
     }
