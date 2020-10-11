@@ -5,7 +5,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in, "UTF-8");
         /*
         //creating the initial employee:
-        System.out.println("Employee personalia (first, last, birthyear): ");
+        System.out.println("Employee personalia (firstname, lastname, birthyear): ");
         String in = scanner.nextLine();
         String[] personalia = in.split(", ");
         System.out.println("Employee ID:");
@@ -19,13 +19,15 @@ public class Main {
 
         Employee employee = new Employee(personalia[0], personalia[1], Integer.parseInt(personalia[2]), id, year, salary, tax);
         */
+        
         //test employee for loop testing
         Employee employee = new Employee("Alida", "Hjelljord", 1994, "AH230693", 2018, 18485.32, 14.6);
-        System.out.println(employee.toString());
 
         //Menu loop:
         boolean carryOn = true;
         while(carryOn){
+            System.out.println(employee.toString() + "\n");
+
             System.out.println("What would you like to change: \n 1: Name \n 2: Monthly salary \n 3: Taxation level \n 4: Exit program");
             int choice = scanner.nextInt();
             switch(choice){
@@ -45,13 +47,13 @@ public class Main {
                     break;
                 case 2:
                     System.out.println("Input new monthly salary:");
-                    double salary = scanner.nextDouble();
-                    employee.setMonthlySalary(salary);
+                    double newSalary = scanner.nextDouble();
+                    employee.setMonthlySalary(newSalary);
                     break;
                 case 3: 
                     System.out.println("Input new taxation level:");
-                    double tax = scanner.nextDouble();
-                    employee.setTaxLevel(tax);
+                    double newTax = scanner.nextDouble();
+                    employee.setTaxLevel(newTax);
                     break;
                 case 4:
                     System.out.println("Process exited, with employee information:");
@@ -60,8 +62,7 @@ public class Main {
                 default:
                     System.out.println("Invalid input.");
             }
-            System.out.println(employee.toString());
-            String avoidCarryOverScannerInput = scanner.nextLine();
+            scanner.nextLine();
         }
         scanner.close();
     }

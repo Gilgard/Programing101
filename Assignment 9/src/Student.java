@@ -20,6 +20,6 @@ public class Student {
     }
 
     public String toString() {
-        return "Student name: " + name + " Number of tasks completed: " + nTasks;
+        return "Student name: " + name + "\n    Number of tasks completed: " + nTasks;
     }   
 }

@@ -13,12 +13,12 @@ public class TaskManager {
         }
     }
 
-    public String getStudents() {
-        String s = "Studenter:";
+    public ArrayList<Student> getStudents() {
+        ArrayList<Student> tempStudents = new ArrayList<Student>();
         for(int i = 0; i < students.size(); i++){
-            s += "\n" + students.get(i).getName();
+            tempStudents.add(students.get(i));
         }
-        return s;
+        return tempStudents;
     }
 
     public int getnStud() {
@@ -61,5 +61,13 @@ public class TaskManager {
         for(int i = 0; i < students.size(); i++){
             System.out.println(students.get(i).toString());
         }
+    }
+
+    public String toString() {
+        String s = "Total number of students: " + nStud + "\nStudents: \n";
+        for(int i = 0; i < students.size(); i++){
+            s += students.get(i).toString() + "\n";
+        }
+        return s;
     }
 }

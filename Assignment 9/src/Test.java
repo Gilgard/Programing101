@@ -1,4 +1,4 @@
-public class Main {
+public class Test {
     public static void main(String[] args) {
         Student[] students = new Student[3];
         students[0] = new Student("Ida Klæstad");
@@ -20,6 +20,6 @@ public class Main {
 
         taskManager.increaseTasks("Renee", 1);
 
-        taskManager.print();
+        System.out.println("\n\n\n" + taskManager.toString());
     }
 }

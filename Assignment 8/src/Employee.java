@@ -17,8 +17,9 @@ public class Employee {
     }
     
     //getters:
-    public String getPersonalia() {
-        return personalia.toString();
+    public Person getPersonalia() {
+        Person person = new Person(personalia.getFirstName(), personalia.getLastName(), personalia.getBirthYear());
+        return person;
     }
     
     public String getEmployeeID() {
@@ -89,7 +90,7 @@ public class Employee {
     }
 
     public String toString() {
-        String s = "Personalia: \n" + personalia.toString() + "\nEmployee ID: " + employeeID + "\nYear of employment: " + employmentYear + "\nMonthly salary: " + monthlySalary + " kr \nTaxation level: " + (taxLevel * 100) + " %";
+        String s = "Personalia: \n" + getPersonalia() + "\nEmployee ID: " + employeeID + "\nYear of employment: " + employmentYear + "\nMonthly salary: " + monthlySalary + " kr \nTaxation level: " + (taxLevel * 100) + " %";
         return s;
     }
 }
