@@ -6,7 +6,6 @@ public class Test {
         students[2] = new Student("Alida Hjelljord");
 
         TaskManager taskManager = new TaskManager(students);
-        taskManager.print();
 
         taskManager.increaseTasks("Klæstad", 8);
         taskManager.increaseTasks("Edvartsen", 7);

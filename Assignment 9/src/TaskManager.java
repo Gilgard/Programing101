@@ -5,12 +5,11 @@ public class TaskManager {
     private int nStud;
 
     public TaskManager(Student[] students){
-        this.nStud = 0;
         this.students = new ArrayList<Student>();
         for(int i = 0; i < students.length; i++){
             this.students.add(students[i]);
-            this.nStud ++;
         }
+        this.nStud = this.students.size();
     }
 
     public ArrayList<Student> getStudents() {
@@ -26,25 +25,23 @@ public class TaskManager {
     }
 
     public int tasksCompleted(String name) {
-        int n = 0;
         for(int i = 0; i < nStud; i++){
             if(students.get(i).getName().contains(name)) {
-                n = students.get(i).getNTasks();
-                break;
+                return students.get(i).getNTasks();
             }
         }
-        return n;
+        return 0;
     }
 
     public boolean addStudent(Student student) {
         for(int i = 0; i < students.size(); i++) {
             if(students.get(i).getName().contains(student.getName())){
+                System.out.println("Student already added.");
                 return false;
             }
         }
         this.students.add(student);
-        this.nStud ++;
-        System.out.println("Student added.");
+        this.nStud = students.size();
         return true;
     }
 
@@ -54,12 +51,6 @@ public class TaskManager {
                 students.get(i).increaseTasks(n);
                 break;
             }
-        }
-    }
-
-    public void print() {
-        for(int i = 0; i < students.size(); i++){
-            System.out.println(students.get(i).toString());
         }
     }
 
