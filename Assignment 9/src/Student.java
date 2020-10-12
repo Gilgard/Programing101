@@ -1,14 +1,14 @@
 public class Student {
-    private String name;
+    private final String NAME;
     private int nTasks;
 
-    public Student(String name){
-        this.name = name;
+    public Student(String NAME){
+        this.NAME = NAME;
         this.nTasks = 0;
     }
 
     public String getName() {
-        return name;
+        return NAME;
     }
 
     public int getNTasks() {
@@ -20,6 +20,6 @@ public class Student {
     }
 
     public String toString() {
-        return "Student name: " + name + "\n    Number of tasks completed: " + nTasks;
+        return "Student NAME: " + NAME + "\n    Number of tasks completed: " + nTasks;
     }   
 }

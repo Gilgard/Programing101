@@ -1,32 +1,32 @@
 public class Person {
-    private String firstName;
-    private String lastName;
-    private int birthYear;
+    private final String FIRSTNAME;
+    private final String LASTNAME;
+    private final int BIRTHYEAR;
 
-    public Person(String firstName, String lastName, int birthYear){
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.birthYear = birthYear;
+    public Person(String FIRSTNAME, String LASTNAME, int BIRTHYEAR){
+        this.FIRSTNAME = FIRSTNAME;
+        this.LASTNAME = LASTNAME;
+        this.BIRTHYEAR = BIRTHYEAR;
     }
 
     public String getFirstName(){
-        return firstName;
+        return FIRSTNAME;
     }
 
     public String getLastName(){
-        return lastName;
+        return LASTNAME;
     }
 
     public int getBirthYear(){
-        return birthYear;
+        return BIRTHYEAR;
     }
 
     public String getName(){
-        return firstName + " " + lastName;
+        return FIRSTNAME + " " + LASTNAME;
     }
 
     public String toString(){
-        String s = "Firstname: " + firstName + "\nLastname: " + lastName + "\nBirth year: " + birthYear;
+        String s = "Firstname: " + FIRSTNAME + "\nLastname: " + LASTNAME + "\nBirth year: " + BIRTHYEAR;
         return s;
     }
 

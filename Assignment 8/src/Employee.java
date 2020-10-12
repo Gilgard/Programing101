@@ -2,16 +2,16 @@ import java.util.Calendar;
 
 public class Employee {
     private Person personalia;
-    private String employeeID;
-    private int employmentYear;
+    private final String EMPLOYEEID;
+    private final int EMPLOYMENTYEAR;
     private double monthlySalary;
     private double taxLevel;
 
     //constructor:
-    public Employee(String firstName, String lastName, int birthYear, String employeeID, int employmentYear, double monthlySalary, double taxLevel) {
+    public Employee(String firstName, String lastName, int birthYear, String EMPLOYEEID, int EMPLOYMENTYEAR, double monthlySalary, double taxLevel) {
         this.personalia = new Person(firstName, lastName, birthYear);
-        this.employeeID = employeeID;
-        this.employmentYear = employmentYear;
+        this.EMPLOYEEID = EMPLOYEEID;
+        this.EMPLOYMENTYEAR = EMPLOYMENTYEAR;
         this.monthlySalary = monthlySalary;
         this.taxLevel = taxLevel * 0.01;
     }
@@ -23,11 +23,11 @@ public class Employee {
     }
     
     public String getEmployeeID() {
-        return employeeID;
+        return EMPLOYEEID;
     }
 
     public int getEmploymentYear() {
-        return employmentYear;
+        return EMPLOYMENTYEAR;
     }
 
     public double getMonthlySalary() {
@@ -75,7 +75,7 @@ public class Employee {
 
     public int employmentTime() {
         int currentYear = Calendar.getInstance().get(Calendar.YEAR);
-        return currentYear - employmentYear;
+        return currentYear - EMPLOYMENTYEAR;
     }
 
     public boolean employedLongerThan(int years) {
@@ -85,12 +85,12 @@ public class Employee {
     public void print() {
         String yesNo = "No";
         if(employedLongerThan(3)) yesNo = "yes";
-        String s = String.format("%s \nAge: %d \nID: %s \nYears employed: %d \nYearly pay before taxes: %.2f kr \nYearly taxes: %.2f kr \nYearly pay after taxes: %.2f kr \nHas been employed for longer than 3 years: %s", name(), age(), employeeID, employmentTime(), yearlyPayBeforeTaxes(), yearlyTaxes(), (yearlyPayBeforeTaxes() - yearlyTaxes()), yesNo);
+        String s = String.format("%s \nAge: %d \nID: %s \nYears employed: %d \nYearly pay before taxes: %.2f kr \nYearly taxes: %.2f kr \nYearly pay after taxes: %.2f kr \nHas been employed for longer than 3 years: %s", name(), age(), EMPLOYEEID, employmentTime(), yearlyPayBeforeTaxes(), yearlyTaxes(), (yearlyPayBeforeTaxes() - yearlyTaxes()), yesNo);
         System.out.println(s);
     }
 
     public String toString() {
-        String s = "Personalia: \n" + getPersonalia() + "\nEmployee ID: " + employeeID + "\nYear of employment: " + employmentYear + "\nMonthly salary: " + monthlySalary + " kr \nTaxation level: " + (taxLevel * 100) + " %";
+        String s = "Personalia: \n" + getPersonalia() + "\nEmployee ID: " + EMPLOYEEID + "\nYear of employment: " + EMPLOYMENTYEAR + "\nMonthly salary: " + monthlySalary + " kr \nTaxation level: " + (taxLevel * 100) + " %";
         return s;
     }
 }
