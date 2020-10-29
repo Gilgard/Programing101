@@ -15,32 +15,15 @@ public class Event{
 
     /**
     * Constructor
-    * @param id
-    * @param name
-    * @param type
-    * @param location
-    * @param time
-    * @param host
+    * @param id : Int
+    * @param name : String
+    * @param type : String
+    * @param location : String
+    * @param time : Int (yymmddhhmm)
+    * @param host : String
     */
     public Event(int id, String name, String type, String location, int time, String host){
         this.id = id;
-        this.name = name;
-        this.type = type;
-        this.location = location;
-        this.time = time;
-        this.host = host;
-    }
-
-    /**
-    * Constructor
-    * @param name
-    * @param type
-    * @param location
-    * @param time
-    * @param host
-    */
-    public Event(String name, String type, String location, int time, String host){
-        this.id = 0;
         this.name = name;
         this.type = type;
         this.location = location;
@@ -112,6 +95,14 @@ public class Event{
         if(!(obj instanceof Event)) return false;
         Event event = (Event) obj;
         return this.getId() == event.getId();
+    }
+
+    /** 
+     * Copies this event
+     * @return Event
+     */
+    public Event clone() {
+        return new Event(id, name, type, location, time, host);
     }
 
 

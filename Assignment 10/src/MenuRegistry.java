@@ -112,7 +112,7 @@ public class MenuRegistry {
     public HashMap<String,Menu> getMenus(double price){
         HashMap<String,Menu> pricedmenus = new HashMap<>();
         for(String key: menus.keySet()){
-            if(menus.get(key).getTotalPrice() <= price) pricedmenus.put(key, menus.get(key));
+            if(menus.get(key).getTotalPrice() <= price) pricedmenus.put(key, menus.get(key).clone());
         }
         return pricedmenus;
     }

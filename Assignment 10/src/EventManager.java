@@ -26,7 +26,7 @@ public class EventManager {
     public ArrayList<Event> getEventList() {
         ArrayList<Event> tempList = new ArrayList<>();
         for (int i = 0; i < eventList.size(); i++) {
-            tempList.add(eventList.get(i));
+            tempList.add(eventList.get(i).clone());
         }
         return tempList;
     }
@@ -37,8 +37,8 @@ public class EventManager {
     class SortByType implements Comparator<Event> { 
         /**
          * Compares two events by type
-         * @param eventA
-         * @param eventB
+         * @param eventA : Event
+         * @param eventB : Event
          * @return int 
          */
         public int compare(Event eventA, Event eventB) { 
@@ -52,8 +52,8 @@ public class EventManager {
     class SortByTime implements Comparator<Event> { 
         /**
          * Compares two events by time
-         * @param eventA
-         * @param eventB
+          * @param eventA : Event
+         * @param eventB : Event
          * @return int 
          */
         public int compare(Event a, Event b) { 
@@ -67,8 +67,8 @@ public class EventManager {
     class SortByLocation implements Comparator<Event> { 
         /**
          * Compares two events by location
-         * @param eventA
-         * @param eventB
+          * @param eventA : Event
+         * @param eventB : Event
          * @return int 
          */
         public int compare(Event a, Event b) { 
@@ -79,7 +79,7 @@ public class EventManager {
     
     /** 
      * Adds event to eventlist if the time and location is available
-     * @param event
+     * @param event : Event
      * @return boolean
      */  
     public boolean add(Event event) {
@@ -91,24 +91,37 @@ public class EventManager {
             }
         }
         if(eventList.contains(event)) {
-            event = new Event(event.getId() + 1, event.getName(), event.getType(), event.getLocation(), event.getTime(), event.getHost());
-            add(event);
-            return true;
+            System.out.println("There's already an event with that id!");
+            return false;
         }
         eventList.add(event);
         return true;
     }
     
     /** 
+     * Finds an unused id
+     * @return int
+     */
+    public int getNewID() {
+        int testID = 0;
+        for(Event event : eventList) {
+            if(event.getId() == testID){
+                testID += 1;
+            }
+        }
+        return testID;
+    }
+    
+    /** 
      * Gets a list of all events at a given location
-     * @param location
+     * @param location : String
      * @return ArrayList<Event>
      */
     public ArrayList<Event> getAtLocation(String location) {
         ArrayList<Event> locationList = new ArrayList<>();
         for (int i = 0; i < eventList.size(); i++) {
             if (eventList.get(i).getLocation().compareTo(location) == 0) {
-                locationList.add(eventList.get(i));
+                locationList.add(eventList.get(i).clone());
             }
         }
         return locationList;
@@ -117,7 +130,7 @@ public class EventManager {
     
     /** 
      * Gets a list of all events on a given date
-     * @param date
+     * @param date : int (yymmdd)
      * @return ArrayList<Event>
      */
     public ArrayList<Event> getOnDate(int date) {
@@ -134,10 +147,10 @@ public class EventManager {
     
     /** 
      * Gets a list of all events in a time interval on two dates
-     * @param date1
-     * @param date2
-     * @param startTime
-     * @param endTime
+     * @param date1 : int (yymmdd)
+     * @param date2 : int (yymmdd)
+     * @param startTime : int (hhmm)
+     * @param endTime : int (hhmm)
      * @return ArrayList<Event>
      */
     public ArrayList<Event> getInInterval(int date1, int date2, int startTime, int endTime) {
@@ -213,7 +226,7 @@ public class EventManager {
     
     /** 
      * Makes a string of all the events in the given list
-     * @param events
+     * @param events : ArrayList<Event>
      * @return String
      */
     public String stringifyList(ArrayList<Event> events) {

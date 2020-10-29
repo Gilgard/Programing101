@@ -4,11 +4,11 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         EventManager eventManager = new EventManager();
-        eventManager.add(new Event("Peter pan", "Childrens theather", "Main stage", 2010221500, "Happy Corp"));
-        eventManager.add(new Event("Mini Golf", "Turnament", "Golf Court", 2010231200, "Sport Inc"));
-        eventManager.add(new Event("Pepa Pig", "Childrens theather", "Main stage", 2010241500, "Happy Corp"));
-        eventManager.add(new Event("Field hockey", "Turnament", "Football field", 2010221500, "Sport Inc"));
-        eventManager.add(new Event("Field hockey", "Turnament", "Football field", 2010221500, "Sport Inc"));
+        eventManager.add(new Event(1, "Peter pan", "Childrens theather", "Main stage", 2010221500, "Happy Corp"));
+        eventManager.add(new Event(2, "Mini Golf", "Turnament", "Golf Court", 2010231200, "Sport Inc"));
+        eventManager.add(new Event(3, "Pepa Pig", "Childrens theather", "Main stage", 2010241500, "Happy Corp"));
+        eventManager.add(new Event(4, "Field hockey", "Turnament", "Football field", 2010221500, "Sport Inc"));
+        eventManager.add(new Event(5, "Field hockey", "Turnament", "Football field", 2010221500, "Sport Inc"));
         
         boolean carryOn = true;
         Scanner scanner = new Scanner(System.in, "UTF-8");
@@ -24,11 +24,12 @@ public class Main {
                     String type = scanner.next();
                     System.out.println("Where is the event?");
                     String location = scanner.next();
+                    scanner.next();
                     System.out.println("What's the date and time of the event? (yymmddtttt)");
                     int time = scanner.nextInt();
                     System.out.println("Who's the host of the event?");
                     String host = scanner.next();
-                    eventManager.add(new Event(name, type, location, time, host));
+                    eventManager.add(new Event(eventManager.getNewID(), name, type, location, time, host));
                     break;
 
                 case 2:
