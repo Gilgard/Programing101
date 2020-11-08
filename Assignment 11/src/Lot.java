@@ -1,6 +1,13 @@
 import java.io.File;
 import java.util.Scanner;
 
+/**
+* Class Lot
+*
+* @author  Gilgard
+* @version 1.0
+* @since   2020.11.01 
+*/
 public class Lot {
     private int municipalityNumber;
     private String municipalityName;
@@ -10,6 +17,15 @@ public class Lot {
     private double squarefootage;
     private String owner;
 
+    /**
+     * Constructs a lot with the given parameters
+     * @param municipalityNumber : int
+     * @param lotNumber : int
+     * @param sectionNumber : int
+     * @param name : String
+     * @param squarefootage : double
+     * @param owner : String
+     */
     public Lot(int municipalityNumber, int lotNumber, int sectionNumber, String name, double squarefootage, String owner){
         if ((municipalityNumber <= 0) || (lotNumber <= 0) || (sectionNumber <= 0) || (squarefootage <= 0)) throw new IllegalArgumentException("municipalityNumber, lot/sectionNumber and squarefootage must be positive.");
         this.municipalityNumber = municipalityNumber;
@@ -22,38 +38,84 @@ public class Lot {
         this.owner = owner;
     }
 
+    
+    /** 
+     * Gets the municipality number
+     * @return int
+     */
     public int getMunicipalityNumber() {
         return this.municipalityNumber;
     }
 
+    
+    /** 
+     * Gets the municipality name
+     * @return String
+     */
     public String getMunicipalityName() {
         return this.municipalityName;
     }
 
+    
+    /** 
+     * Gets the lot number (gnr)
+     * @return int
+     */
     public int getLotNumber() {
         return this.lotNumber;
     }
 
+    
+    /** 
+     * Gets the section number (bnr)
+     * @return int
+     */
     public int getSectionNumber() {
         return this.sectionNumber;
     }
 
+    
+    /** 
+     * Gets the name
+     * @return String
+     */
     public String getName() {
         return this.name;
     }
 
+    
+    /** 
+     * Gets the square footage
+     * @return double
+     */
     public double getSquarefootage() {
         return this.squarefootage;
     }
 
+    
+    /** 
+     * Gets the name of the owner
+     * @return String
+     */
     public String getOwner() {
         return this.owner;
     }
 
+    
+    /** 
+     * Gets the id (kommunenr-gnr/bnr)
+     * @return String
+     */
     public String getID() {
         return municipalityNumber + "-" + lotNumber + "/" + sectionNumber;
     }
 
+    
+    /** 
+     * Reads the name of the municipality from the list of municipalities found in the lib folder
+     * @param municipalityNumber : int
+     * @return String
+     */
     private String findMunicipalityName(int municipalityNumber) {
         try{
             File file = new File("C:\\Users\\Alida\\Documents\\GitHub\\Programing101\\Assignment 11\\lib\\MunicipalList.txt");
@@ -73,6 +135,12 @@ public class Lot {
         return "Municipality not found.";
     }
 
+    
+    /** 
+     * Checks if the given object is the same as this lot
+     * @param obj : Object
+     * @return boolean
+     */
     public boolean equals(Object obj) {
         if(obj == this) return true;
         if(!(obj instanceof Lot)) return false;
@@ -80,10 +148,20 @@ public class Lot {
         return this.getID().equals(lot.getID());
     }
 
+    
+    /** 
+     * Makes a clone of this lot
+     * @return Lot
+     */
     public Lot clone() {
         return new Lot(municipalityNumber, lotNumber, sectionNumber, name, squarefootage, owner);
     }
 
+    
+    /** 
+     * Makes a string of all paramers of this lot
+     * @return String
+     */
     public String toString() {
         String s = municipalityName + ": " + municipalityNumber + "-" + lotNumber + "/" + sectionNumber;
         if (!name.equals("")) s += "\nNavn: " + name;
