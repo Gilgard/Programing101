@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class TimeToSeconds {
     public static void main(String[] args) {
-        final Scanner input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
         System.out.println("Enter time (h,m,s): ");
         String in = input.next();
         String[] time = in.split(",", 5);

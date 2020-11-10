@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 
 /**
 * Class EventManager 
@@ -31,52 +30,6 @@ public class EventManager {
         return tempList;
     }
 
-    /**
-    * Class SortByType
-    */
-    class SortByType implements Comparator<Event> { 
-        /**
-         * Compares two events by type
-         * @param eventA : Event
-         * @param eventB : Event
-         * @return int 
-         */
-        public int compare(Event eventA, Event eventB) { 
-            return eventA.getType().compareTo(eventB.getType()); 
-        } 
-    }
-
-    /**
-    * Class SortByTime
-    */
-    class SortByTime implements Comparator<Event> { 
-        /**
-         * Compares two events by time
-          * @param eventA : Event
-         * @param eventB : Event
-         * @return int 
-         */
-        public int compare(Event a, Event b) { 
-            return a.getTime() - b.getTime(); 
-        } 
-    }
-
-    /**
-    * Class SortByLocation
-    */
-    class SortByLocation implements Comparator<Event> { 
-        /**
-         * Compares two events by location
-          * @param eventA : Event
-         * @param eventB : Event
-         * @return int 
-         */
-        public int compare(Event a, Event b) { 
-            return a.getLocation().compareTo(b.getLocation()); 
-        } 
-    }
-
-    
     /** 
      * Adds event to eventlist if the time and location is available
      * @param event : Event

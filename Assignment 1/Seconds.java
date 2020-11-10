@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Seconds {
     public static void main(String[] args) {
 
-        final Scanner input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
         System.out.println("Enter seconds: ");
         int in = input.nextInt();
         input.close();

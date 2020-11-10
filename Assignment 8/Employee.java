@@ -82,11 +82,11 @@ public class Employee {
         return employmentTime() >= years;
     }
 
-    public void print() {
+    public String toPrint() {
         String yesNo = "No";
         if(employedLongerThan(3)) yesNo = "yes";
         String s = String.format("%s \nAge: %d \nID: %s \nYears employed: %d \nYearly pay before taxes: %.2f kr \nYearly taxes: %.2f kr \nYearly pay after taxes: %.2f kr \nHas been employed for longer than 3 years: %s", name(), age(), EMPLOYEEID, employmentTime(), yearlyPayBeforeTaxes(), yearlyTaxes(), (yearlyPayBeforeTaxes() - yearlyTaxes()), yesNo);
-        System.out.println(s);
+        return s;
     }
 
     public String toString() {

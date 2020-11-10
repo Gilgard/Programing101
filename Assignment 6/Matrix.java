@@ -71,14 +71,15 @@ public class Matrix {
         return transmuted;
     }
 
-    public void print(){
+    public String toString(){
+        String s = "";
         for(int i = 0; i < M; i++){
-            String s = "";
             for(int j = 0; j < N; j++){
                 s += findValue(i, j) + " ";
             }
-            System.out.println(s);
+            s += "\n";
         }
+        return s;
     }
 
     public static void main(String[] args) {
@@ -89,13 +90,13 @@ public class Matrix {
 
         System.out.println("The sum of matrix1 with itself:");
         Matrix sum = matrix1.add(matrix1);
-        sum.print();
+        System.out.println(sum.toString());
 
         System.out.println("The product of matrix1 and the transmuted matrix1:");
         Matrix product = matrix1.multiply(matrix2);
-        product.print();
+        System.out.println(product.toString());
 
         System.out.println("The transmuted matrix1");
-        matrix2.print();
+        System.out.println(matrix2.toString());
     }
 }

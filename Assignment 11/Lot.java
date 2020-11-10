@@ -14,7 +14,7 @@ public class Lot {
     private int lotNumber;
     private int sectionNumber;
     private String name;
-    private double squarefootage;
+    private double squareFootage;
     private String owner;
 
     /**
@@ -23,18 +23,18 @@ public class Lot {
      * @param lotNumber : int
      * @param sectionNumber : int
      * @param name : String
-     * @param squarefootage : double
+     * @param squareFootage : double
      * @param owner : String
      */
-    public Lot(int municipalityNumber, int lotNumber, int sectionNumber, String name, double squarefootage, String owner){
-        if ((municipalityNumber <= 0) || (lotNumber <= 0) || (sectionNumber <= 0) || (squarefootage <= 0)) throw new IllegalArgumentException("municipalityNumber, lot/sectionNumber and squarefootage must be positive.");
+    public Lot(int municipalityNumber, int lotNumber, int sectionNumber, String name, double squareFootage, String owner){
+        if ((municipalityNumber <= 0) || (lotNumber <= 0) || (sectionNumber <= 0) || (squareFootage <= 0)) throw new IllegalArgumentException("municipalityNumber, lot/sectionNumber and squareFootage must be positive.");
         this.municipalityNumber = municipalityNumber;
         this.municipalityName = findMunicipalityName(municipalityNumber);
         if (this.municipalityName.equals("Municipality not found.")) throw new IllegalArgumentException("Invalid municipality number.");
         this.lotNumber = lotNumber;
         this.sectionNumber = sectionNumber;
         this.name = name;
-        this.squarefootage = squarefootage;
+        this.squareFootage = squareFootage;
         this.owner = owner;
     }
 
@@ -89,7 +89,7 @@ public class Lot {
      * @return double
      */
     public double getSquarefootage() {
-        return this.squarefootage;
+        return this.squareFootage;
     }
 
     
@@ -154,7 +154,7 @@ public class Lot {
      * @return Lot
      */
     public Lot clone() {
-        return new Lot(municipalityNumber, lotNumber, sectionNumber, name, squarefootage, owner);
+        return new Lot(municipalityNumber, lotNumber, sectionNumber, name, squareFootage, owner);
     }
 
     
@@ -165,7 +165,7 @@ public class Lot {
     public String toString() {
         String s = municipalityName + ": " + municipalityNumber + "-" + lotNumber + "/" + sectionNumber;
         if (!name.equals("")) s += "\nNavn: " + name;
-        s += "\nAreal: " + squarefootage + "\nEier: " + owner;
+        s += "\nAreal: " + squareFootage + "\nEier: " + owner;
         return s;
     }
 }

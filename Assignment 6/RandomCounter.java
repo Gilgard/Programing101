@@ -11,7 +11,7 @@ public class RandomCounter {
         return occurances;
     }
 
-    public String stringify(int[] occurances) {
+    public String toString(int[] occurances) {
         String string = "";
         for (int i = 0; i < 10; i++) {
             string += (i + 1) + ": " + occurances[i] + "\n";
@@ -21,9 +21,9 @@ public class RandomCounter {
 
     public static void main(final String[] args) {
         RandomCounter randomCounter = new RandomCounter();
-        System.out.println("List of number occuranses for 1000 itterations: \n" + randomCounter.stringify(randomCounter.occurancesZeroToNine(1000)));
-        System.out.println("List of number occuranses for 5000 itterations: \n" + randomCounter.stringify(randomCounter.occurancesZeroToNine(5000)));
-        System.out.println("List of number occuranses for 10 000 itterations: \n" + randomCounter.stringify(randomCounter.occurancesZeroToNine(10_000)));
+        System.out.println("List of number occuranses for 1000 itterations: \n" + randomCounter.toString(randomCounter.occurancesZeroToNine(1000)));
+        System.out.println("List of number occuranses for 5000 itterations: \n" + randomCounter.toString(randomCounter.occurancesZeroToNine(5000)));
+        System.out.println("List of number occuranses for 10 000 itterations: \n" + randomCounter.toString(randomCounter.occurancesZeroToNine(10_000)));
     }
     
 }

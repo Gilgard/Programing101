@@ -85,12 +85,11 @@ public class TxtAnalyzor{
         return list;
     }
 
-    public void print(char letter){
-        System.out.println("There are " + numberOfDifferentLetters() + " different letters.");
-        System.out.println("There are " + numberOfLetters() + " letters total.");
-        System.out.printf("There are %.2f %% symbols in this text.\n", percentOfSybols());
-        System.out.println("There are " + numberOfLetter(letter) + " occurances of "+ letter +".");
-        System.out.println("The most common letter is " + mostUsedLetters() + ".");
+    public String toString(char letter){
+        String s = "There are " + numberOfDifferentLetters() + " different letters. \nThere are " + numberOfLetters() + " letters total.\n";
+        s += String.format("There are %.2f %% symbols in this text.\n", percentOfSybols());
+        s += "There are " + numberOfLetter(letter) + " occurances of "+ letter +". \nThe most common letter is " + mostUsedLetters() + ".";
+        return s;
     }
 
     public static void main(String[] args) {
@@ -110,7 +109,7 @@ public class TxtAnalyzor{
             char letter = scanner.nextLine().charAt(0);
 
             TxtAnalyzor analyzor = new TxtAnalyzor(txt);
-            analyzor.print(letter);
+            System.out.println(analyzor.toString(letter));
         }
         scanner.close();
     }
