@@ -7,7 +7,7 @@
 * @since   2020.11.01 
 */
 public class HearingAid {
-    private int id;
+    private String id;
     private String type;
     private boolean rented;
     private String renter;
@@ -17,7 +17,7 @@ public class HearingAid {
      * @param id : int (ex: 2001)
      * @param type : String
      */
-    public HearingAid(int id, String type) {
+    public HearingAid(String id, String type) {
         this.id = id;
         this.type = type;
         this.rented = false;
@@ -30,19 +30,21 @@ public class HearingAid {
      * @param type : String
      * @param renter : String
      */
-    public HearingAid(int id, String type, String renter) {
+    public HearingAid(String id, String type, String renter) {
         this.id = id;
         this.type = type;
         this.rented = true;
         this.renter = renter;
     }
     
-    
+    // implementing getters for all parameters, but setter only for renter so that the status of the aid can be altered
+
+
     /** 
      * Gets the id.
      * @return int
      */
-    public int getId() {
+    public String getId() {
         return this.id;
     }
 
@@ -97,7 +99,7 @@ public class HearingAid {
         if(obj == this) return true;
         if(!(obj instanceof HearingAid)) return false;
         HearingAid hearingAid = (HearingAid) obj;
-        return this.getId() == hearingAid.getId();
+        return this.getId().equals(hearingAid.getId());
     }
 
     
@@ -110,6 +112,16 @@ public class HearingAid {
         return new HearingAid(id, type, renter);
     }
 
+    /** 
+     * Makes a string for printing aids in the registry
+     * @return String
+     */
+    public String toStringRegistry(){
+        if(isRented()) {
+            return id + " " + type + " utleid til: " + renter;
+        }
+        return id + " " + type + " ledig";
+    }
     
     /** 
      * Makes a string with all the variables.
