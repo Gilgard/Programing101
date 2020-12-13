@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class Prime {
     public static boolean isPrime(int n){
         for(int i = 2; i < n; i++){

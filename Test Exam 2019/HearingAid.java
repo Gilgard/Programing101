@@ -9,7 +9,6 @@
 public class HearingAid {
     private String id;
     private String type;
-    private boolean rented;
     private String renter;
 
     /**
@@ -20,8 +19,7 @@ public class HearingAid {
     public HearingAid(String id, String type) {
         this.id = id;
         this.type = type;
-        this.rented = false;
-        this.renter = "Ingen";
+        this.renter = "";
     }
 
     /**
@@ -33,7 +31,6 @@ public class HearingAid {
     public HearingAid(String id, String type, String renter) {
         this.id = id;
         this.type = type;
-        this.rented = true;
         this.renter = renter;
     }
     
@@ -63,7 +60,7 @@ public class HearingAid {
      * @return boolean
      */
     public boolean isRented() {
-        return this.rented;
+        return !renter.equals("");
     }
 
     
@@ -77,15 +74,10 @@ public class HearingAid {
 
     
     /** 
-     * Sets the renters name and the rented status. If input name is "ingen" (capital letters does not matter) the status will be set to false.
+     * Sets the renters name and the rented status. If input name is "" the status will be set to false.
      * @param renter
      */
     public void setRenter(String renter) {
-        if(renter.toLowerCase().equals("ingen")) {
-            this.rented = false;
-        }else{
-            this.rented = true;
-        }
         this.renter = renter;
     }
 
@@ -108,7 +100,6 @@ public class HearingAid {
      * @return HearingAid
      */
     public HearingAid copy() {
-        if(!rented) return new HearingAid(id, type);
         return new HearingAid(id, type, renter);
     }
 
@@ -129,7 +120,7 @@ public class HearingAid {
      */
     public String toString() {
         String yesno = "NEI";
-        if(rented) yesno = "JA";
+        if(isRented()) yesno = "JA";
         return "ID: " + id + " Type: " + type + " Utleid: " + yesno + " Utleid til: " + renter; 
     }
 }
